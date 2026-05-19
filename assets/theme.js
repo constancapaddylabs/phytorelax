@@ -116,8 +116,12 @@
           obs.unobserve(e.target);
         }
       });
-    }, { threshold: 0.3 });
-    titles.forEach(t => { t.classList.add('title-reveal'); obs.observe(t); });
+    }, { threshold: 0.1 });
+    titles.forEach(t => {
+      if (t.classList.contains('title-revealed')) return;
+      t.classList.add('title-reveal');
+      obs.observe(t);
+    });
   }
 
   /* ---- DIVIDER LINE DRAW ---- */
@@ -477,5 +481,6 @@
     initDividerDraw();
     initMarqueePause();
     initButtonRipple();
+    initTitleReveal();
   });
 })();
