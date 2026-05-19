@@ -1079,7 +1079,8 @@ h4 { font-size: 1.25rem; font-weight: 600; }
   clip-path: inset(0 0 100% 0);
   transition: clip-path 0.9s cubic-bezier(0.77, 0, 0.18, 1);
 }
-.title-reveal.title-revealed {
+.title-reveal.title-revealed,
+.fade-up.visible .title-reveal {
   clip-path: inset(0 0 0% 0);
 }
 

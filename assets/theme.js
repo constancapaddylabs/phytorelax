@@ -108,19 +108,8 @@
   /* ---- SECTION TITLE REVEAL ---- */
   function initTitleReveal() {
     if (prefersReducedMotion || !window.IntersectionObserver) return;
-    const titles = document.querySelectorAll('.section-header h2, .split-section__content h2');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('title-revealed');
-          obs.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    titles.forEach(t => {
-      if (t.classList.contains('title-revealed')) return;
+    document.querySelectorAll('.section-header h2, .split-section__content h2').forEach(t => {
       t.classList.add('title-reveal');
-      obs.observe(t);
     });
   }
 
