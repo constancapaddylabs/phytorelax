@@ -1,0 +1,133 @@
+<div class="container">
+  {% render 'breadcrumb' %}
+
+  <div class="product-page">
+
+    <!-- Gallery -->
+    <div class="product-gallery">
+      <div class="product-gallery__main">
+        {%- if product.featured_image -%}
+          <img id="main-product-image"
+               src="{{ product.featured_image | image_url: width: 900 }}"
+               alt="{{ product.featured_image.alt | default: product.title | escape }}"
+               width="900"
+               loading="eager">
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+
+      {%- if product.images.size > 1 -%}
+        <div class="product-gallery__thumbs">
+          {%- for image in product.images limit: 5 -%}
+            <div class="product-gallery__thumb {% if forloop.first %}active{% endif %}">
+              <img src="{{ image | image_url: width: 150 }}"
+                   alt="{{ image.alt | default: product.title | escape }}"
+                   loading="lazy">
+            </div>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <!-- Product Info -->
+    <div class="product-info">
+      <p class="product-info__vendor">{{ product.vendor }}</p>
+      <h1>{{ product.title }}</h1>
+      <p class="product-info__price">
+        <span id="product-price">{{ product.selected_or_first_available_variant.price | money }}</span>
+        {%- if product.compare_at_price > product.price -%}
+          <del style="font-size:1rem;color:var(--color-muted);font-weight:400;margin-left:0.5rem;">
+            {{ product.compare_at_price | money }}
+          </del>
+        {%- endif -%}
+      </p>
+
+      {%- if product.description != blank -%}
+        <div class="product-info__description">
+          {{ product.description }}
+        </div>
+      {%- endif -%}
+
+      <form class="product-info__form" action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="form_type" value="product">
+        <input type="hidden" name="utf8" value="✓">
+
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <label class="variant-label">{{ option.name }}</label>
+            <div class="variant-options">
+              {%- for value in option.values -%}
+                {%- assign variant_for_value = product.variants | where: 'option1', value | first -%}
+                <button type="button"
+                        class="variant-btn {% if option.selected_value == value %}active{% endif %}"
+                        data-option="{{ option.position }}"
+                        data-value="{{ value }}"
+                        {% if variant_for_value %}data-variant-id="{{ variant_for_value.id }}" data-price="{{ variant_for_value.price | money }}"{% endif %}>
+                  {{ value }}
+                </button>
+              {%- endfor -%}
+            </div>
+          {%- endfor -%}
+        {%- endunless -%}
+
+        <!-- Qty -->
+        <label class="variant-label">Quantity</label>
+        <div class="qty-selector">
+          <button type="button" class="qty-btn" data-qty="minus" aria-label="Decrease quantity">−</button>
+          <input class="qty-input" type="number" name="quantity" value="1" min="1" aria-label="Quantity">
+          <button type="button" class="qty-btn" data-qty="plus" aria-label="Increase quantity">+</button>
+        </div>
+
+        <input type="hidden" name="id" id="variant-id" value="{{ product.selected_or_first_available_variant.id }}">
+
+        <button type="submit"
+                class="btn btn--primary add-to-cart-btn"
+                data-variant-id="{{ product.selected_or_first_available_variant.id }}"
+                {% unless product.available %}disabled{% endunless %}>
+          {%- if product.available -%}
+            Add to Cart
+          {%- else -%}
+            Sold Out
+          {%- endif -%}
+        </button>
+      </form>
+
+      <!-- Trust badges -->
+      <div class="product-info__badges">
+        <span class="product-badge">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          Dermatologically tested
+        </span>
+        <span class="product-badge">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          No mineral oils
+        </span>
+        <span class="product-badge">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Made in Italy
+        </span>
+        <span class="product-badge">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Free shipping over €50
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  {%- if recommendations.performed and recommendations.products_count > 0 -%}
+    <section class="section">
+      <div class="section-header">
+        <p class="eyebrow">You May Also Like</p>
+        <h2>Complete Your Routine</h2>
+        <div class="divider divider--center"></div>
+      </div>
+      <div class="collection-grid">
+        {%- for rec_product in recommendations.products limit: 4 -%}
+          {% render 'product-card', product: rec_product %}
+        {%- endfor -%}
+      </div>
+    </section>
+  {%- endif -%}
+</div>

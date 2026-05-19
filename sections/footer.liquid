@@ -1,0 +1,132 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="{{ routes.root_url }}" class="site-logo" style="display:block;margin-bottom:1rem;">
+          {{ shop.name }}
+        </a>
+        <p>{{ section.settings.tagline }}</p>
+        <div class="footer-social">
+          {%- if section.settings.instagram_url != blank -%}
+            <a href="{{ section.settings.instagram_url }}" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+          {%- endif -%}
+          {%- if section.settings.facebook_url != blank -%}
+            <a href="{{ section.settings.facebook_url }}" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+          {%- endif -%}
+          {%- if section.settings.tiktok_url != blank -%}
+            <a href="{{ section.settings.tiktok_url }}" class="social-btn" aria-label="TikTok" target="_blank" rel="noopener">TK</a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Shop -->
+      <div class="footer-col">
+        <h4>{{ section.settings.col1_heading }}</h4>
+        <ul>
+          {%- for link in linklists[section.settings.footer_shop_menu].links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <!-- Help -->
+      <div class="footer-col">
+        <h4>{{ section.settings.col2_heading }}</h4>
+        <ul>
+          {%- for link in linklists[section.settings.footer_help_menu].links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+      <!-- About -->
+      <div class="footer-col">
+        <h4>{{ section.settings.col3_heading }}</h4>
+        <ul>
+          {%- for link in linklists[section.settings.footer_about_menu].links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</span>
+      <span>{{ section.settings.footer_note }}</span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Brand tagline",
+      "default": "Premium hair care crafted with nature's finest ingredients. Dermatologically tested and made in Italy."
+    },
+    {
+      "type": "text",
+      "id": "col1_heading",
+      "label": "Column 1 heading",
+      "default": "Shop"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_shop_menu",
+      "label": "Column 1 menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "col2_heading",
+      "label": "Column 2 heading",
+      "default": "Help"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_help_menu",
+      "label": "Column 2 menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "col3_heading",
+      "label": "Column 3 heading",
+      "default": "About"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_about_menu",
+      "label": "Column 3 menu",
+      "default": "footer"
+    },
+    {
+      "type": "text",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "text",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "text",
+      "id": "tiktok_url",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "text",
+      "id": "footer_note",
+      "label": "Footer note",
+      "default": "Made with love in Italy · Dermatologically tested"
+    }
+  ]
+}
+{% endschema %}

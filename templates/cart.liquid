@@ -1,0 +1,102 @@
+<div class="container cart-page">
+
+  {% render 'breadcrumb' %}
+
+  <h1>Your Cart</h1>
+
+  {%- if cart.item_count > 0 -%}
+
+    <div class="cart-layout">
+
+      <!-- Line items -->
+      <div class="cart-items">
+        {%- for item in cart.items -%}
+          <div class="cart-item">
+
+            <div class="cart-item__image">
+              {%- if item.image -%}
+                <img src="{{ item.image | image_url: width: 200 }}"
+                     alt="{{ item.image.alt | default: item.title | escape }}"
+                     loading="lazy">
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+              {%- endif -%}
+            </div>
+
+            <div class="cart-item__details">
+              <p class="cart-item__title">{{ item.product.title }}</p>
+              {%- unless item.variant.title == 'Default Title' -%}
+                <p class="cart-item__variant">{{ item.variant.title }}</p>
+              {%- endunless -%}
+
+              <div class="qty-selector" data-line-key="{{ item.key }}">
+                <button type="button" class="qty-btn" data-qty="minus" aria-label="Decrease">−</button>
+                <input class="qty-input" type="number" value="{{ item.quantity }}" min="1" aria-label="Quantity">
+                <button type="button" class="qty-btn" data-qty="plus" aria-label="Increase">+</button>
+              </div>
+
+              <a href="{{ routes.cart_change_url }}?id={{ item.key }}&quantity=0"
+                 class="cart-item__remove"
+                 data-no-instant>
+                Remove
+              </a>
+            </div>
+
+            <div class="cart-item__price">
+              <strong>{{ item.line_price | money }}</strong>
+            </div>
+
+          </div>
+        {%- endfor -%}
+      </div>
+
+      <!-- Summary -->
+      <aside class="cart-summary">
+        <h3>Order Summary</h3>
+
+        <div class="cart-summary__row">
+          <span>Subtotal</span>
+          <span>{{ cart.total_price | money }}</span>
+        </div>
+        <div class="cart-summary__row">
+          <span>Shipping</span>
+          <span>Calculated at checkout</span>
+        </div>
+        {%- if cart.total_discount > 0 -%}
+          <div class="cart-summary__row" style="color:var(--color-rose-gold)">
+            <span>Savings</span>
+            <span>-{{ cart.total_discount | money }}</span>
+          </div>
+        {%- endif -%}
+        <div class="cart-summary__row">
+          <span class="cart-summary__total">Total</span>
+          <span class="cart-summary__total">{{ cart.total_price | money }}</span>
+        </div>
+
+        <div class="cart-summary__cta">
+          <a href="{{ routes.checkout }}" class="btn btn--primary" style="width:100%;justify-content:center;">
+            Proceed to Checkout
+          </a>
+          <a href="{{ routes.collections_url }}" class="btn btn--ghost" style="width:100%;justify-content:center;margin-top:0.75rem;">
+            Continue Shopping
+          </a>
+        </div>
+
+        <!-- Trust signals -->
+        <div style="margin-top:1.5rem;text-align:center;">
+          <p style="font-size:0.72rem;color:var(--color-muted);line-height:1.6;">
+            🔒 Secure checkout &nbsp;·&nbsp; Free returns &nbsp;·&nbsp; Made in Italy
+          </p>
+        </div>
+      </aside>
+
+    </div>
+
+  {%- else -%}
+    <div style="text-align:center;padding:5rem 0;">
+      <p style="font-size:1.2rem;color:var(--color-muted);margin-bottom:2rem;">Your cart is empty.</p>
+      <a href="{{ routes.collections_url }}" class="btn btn--primary">Start Shopping</a>
+    </div>
+  {%- endif -%}
+
+</div>

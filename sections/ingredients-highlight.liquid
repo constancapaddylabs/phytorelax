@@ -1,0 +1,59 @@
+<section class="section ingredients-section">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.heading | default: "Nature's Most Powerful Ingredients" }}</h2>
+      <div class="divider divider--center"></div>
+      {%- if section.settings.description != blank -%}
+        <p>{{ section.settings.description }}</p>
+      {%- endif -%}
+    </div>
+
+    <div class="ingredients-grid">
+      {%- for block in section.blocks -%}
+        <div class="ingredient-card fade-up" {{ block.shopify_attributes }}>
+          <div class="ingredient-card__icon">{{ block.settings.icon | default: '🌿' }}</div>
+          <h3>{{ block.settings.name | default: 'Ingredient' }}</h3>
+          <p>{{ block.settings.description | default: 'A powerful natural ingredient that nourishes and strengthens each strand.' }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients Highlight",
+  "settings": [
+    { "type": "text",    "id": "eyebrow",     "label": "Eyebrow text", "default": "Our Formula" },
+    { "type": "text",    "id": "heading",     "label": "Heading",      "default": "Nature's Most Powerful Ingredients" },
+    { "type": "textarea","id": "description", "label": "Description" }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "text",    "id": "icon",        "label": "Emoji icon",  "default": "🌿" },
+        { "type": "text",    "id": "name",        "label": "Name",        "default": "Hydrolyzed Keratin" },
+        { "type": "textarea","id": "description", "label": "Description", "default": "Fills gaps in the hair shaft to restore smoothness and strength, reducing frizz from within." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients Highlight",
+      "blocks": [
+        { "type": "ingredient", "settings": { "icon": "🥑", "name": "Avocado Oil",           "description": "Rich in vitamins A, D and E — deeply moisturises and adds brilliant shine to every strand." }},
+        { "type": "ingredient", "settings": { "icon": "💧", "name": "Sodium Hyaluronate",    "description": "Attracts and binds moisture to the hair fibre, leaving locks soft and hydrated all day." }},
+        { "type": "ingredient", "settings": { "icon": "✨", "name": "Hydrolyzed Keratin",    "description": "Fills gaps in the hair shaft to restore smoothness and strength, reducing frizz from within." }},
+        { "type": "ingredient", "settings": { "icon": "🌾", "name": "Guar Conditioning",     "description": "A natural plant-derived conditioner that detangles, softens, and protects against breakage." }}
+      ]
+    }
+  ]
+}
+{% endschema %}

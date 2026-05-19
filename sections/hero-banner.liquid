@@ -1,0 +1,86 @@
+{%- if section.settings.background_image != blank -%}
+  {%- assign hero_bg = section.settings.background_image | image_url: width: 2000 -%}
+{%- else -%}
+  {%- assign hero_bg = 'https://www.phytorelax.it/wp-content/uploads/2024/10/Body-ritual-1-819x1024.jpg' -%}
+{%- endif -%}
+
+{%- if section.settings.product_image != blank -%}
+  {%- assign hero_product = section.settings.product_image | image_url: width: 600 -%}
+{%- else -%}
+  {%- assign hero_product = 'https://www.phytorelax.it/wp-content/uploads/2024/11/Curly-2.png' -%}
+{%- endif -%}
+
+<section class="hero" data-parallax-wrap>
+
+  <!-- Parallax background -->
+  <div class="hero__bg"
+       data-parallax="0.28"
+       style="background-image: url('{{ hero_bg }}');"></div>
+
+  <!-- Overlay -->
+  <div class="hero__overlay" style="opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};"></div>
+
+  <!-- Floating product image -->
+  {%- if section.settings.show_product_float -%}
+    <img class="hero__product-float"
+         src="{{ hero_product }}"
+         alt="Featured product"
+         loading="eager">
+  {%- endif -%}
+
+  <div class="container">
+    <div class="hero__content">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+
+      <h1>{{ section.settings.heading | default: "Unlock Your Hair's True Potential" }}</h1>
+
+      {%- if section.settings.subheading != blank -%}
+        <p class="subheading">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+
+      {%- if section.settings.description != blank -%}
+        <p style="margin-bottom: 2rem; color: rgba(255,255,255,0.85); max-width: 460px;">
+          {{ section.settings.description }}
+        </p>
+      {%- endif -%}
+
+      <div class="hero__actions">
+        {%- if section.settings.cta_label != blank -%}
+          <a href="{{ section.settings.cta_url | default: routes.collections_url }}"
+             class="btn btn--primary">
+            {{ section.settings.cta_label }}
+          </a>
+        {%- endif -%}
+        {%- if section.settings.cta2_label != blank -%}
+          <a href="{{ section.settings.cta2_url | default: '#' }}"
+             class="btn btn--ghost" style="color:#fff;border-color:rgba(255,255,255,0.6);">
+            {{ section.settings.cta2_label }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "settings": [
+    { "type": "image_picker", "id": "background_image", "label": "Background image" },
+    { "type": "image_picker", "id": "product_image",    "label": "Floating product image (right)" },
+    { "type": "checkbox",     "id": "show_product_float", "label": "Show floating product image", "default": true },
+    { "type": "range", "id": "overlay_opacity", "label": "Overlay opacity", "min": 0, "max": 80, "step": 5, "default": 50, "unit": "%" },
+    { "type": "text",    "id": "eyebrow",    "label": "Eyebrow text",   "default": "Premium Hair Care" },
+    { "type": "text",    "id": "heading",    "label": "Heading",        "default": "Unlock Your Hair's True Potential" },
+    { "type": "text",    "id": "subheading", "label": "Subheading",     "default": "Science-backed formulas with nature's finest ingredients." },
+    { "type": "textarea","id": "description","label": "Description text","default": "Free from mineral oils · Dermatologically tested · Made in Italy" },
+    { "type": "text",    "id": "cta_label",  "label": "Button 1 label", "default": "Shop Now" },
+    { "type": "text",    "id": "cta_url",    "label": "Button 1 URL" },
+    { "type": "text",    "id": "cta2_label", "label": "Button 2 label", "default": "Our Story" },
+    { "type": "text",    "id": "cta2_url",   "label": "Button 2 URL" }
+  ],
+  "presets": [{ "name": "Hero Banner" }]
+}
+{% endschema %}

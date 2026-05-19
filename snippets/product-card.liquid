@@ -1,0 +1,45 @@
+{% comment %}
+  Usage: {% render 'product-card', product: product %}
+{% endcomment %}
+
+{%- assign first_variant = product.first_available_variant | default: product.variants.first -%}
+
+<div class="product-card fade-up">
+  <div class="product-card__image-wrap">
+    <a href="{{ product.url }}" aria-label="{{ product.title }}">
+      {%- if product.featured_image -%}
+        <img src="{{ product.featured_image | image_url: width: 600 }}"
+             alt="{{ product.featured_image.alt | default: product.title | escape }}"
+             width="600"
+             loading="lazy">
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+      {%- endif -%}
+    </a>
+
+    {%- if product.compare_at_price > product.price -%}
+      <span class="product-card__badge">Sale</span>
+    {%- elsif product.tags contains 'new' -%}
+      <span class="product-card__badge">New</span>
+    {%- endif -%}
+
+    <button class="product-card__quick-add btn"
+            data-variant-id="{{ first_variant.id }}"
+            aria-label="Quick add {{ product.title }} to cart">
+      Quick Add
+    </button>
+  </div>
+
+  <div class="product-card__body">
+    <p class="product-card__vendor">{{ product.vendor }}</p>
+    <a href="{{ product.url }}">
+      <p class="product-card__title">{{ product.title }}</p>
+    </a>
+    <p class="product-card__price">
+      {{ product.price | money }}
+      {%- if product.compare_at_price > product.price -%}
+        <span class="compare-at">{{ product.compare_at_price | money }}</span>
+      {%- endif -%}
+    </p>
+  </div>
+</div>

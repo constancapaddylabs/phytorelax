@@ -1,0 +1,56 @@
+<section class="split-section{% if section.settings.reverse %} split-section--reverse{% endif %}">
+
+  {%- if section.settings.image != blank -%}
+    {%- assign story_img = section.settings.image | image_url: width: 900 -%}
+  {%- else -%}
+    {%- assign story_img = 'https://www.phytorelax.it/wp-content/uploads/2024/10/Body-ritual-1-819x1024.jpg' -%}
+  {%- endif -%}
+
+  <div class="split-section__visual" data-parallax-wrap>
+    <img src="{{ story_img }}"
+         alt="{{ section.settings.image.alt | default: section.settings.heading }}"
+         data-parallax="0.18"
+         loading="lazy">
+  </div>
+
+  <div class="split-section__content">
+    <div class="fade-up">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.heading | default: 'The Science of Beautiful Hair' }}</h2>
+      <div class="divider"></div>
+      {%- if section.settings.subheading != blank -%}
+        <p class="subheading" style="color: var(--color-rose-gold); margin-bottom: 1.2rem;">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      {%- if section.settings.text != blank -%}
+        {{ section.settings.text }}
+      {%- else -%}
+        <p>We believe beautiful hair starts with the right ingredients. Every formula is built around clinically-proven actives — keratin, hyaluronic acid, precious plant oils — working in harmony to transform your hair from root to tip.</p>
+      {%- endif -%}
+      {%- if section.settings.cta_label != blank -%}
+        <a href="{{ section.settings.cta_url | default: '#' }}" class="btn btn--primary">
+          {{ section.settings.cta_label }}
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Brand Story",
+  "settings": [
+    { "type": "image_picker", "id": "image",      "label": "Image" },
+    { "type": "checkbox",     "id": "reverse",    "label": "Reverse layout (image on right)", "default": false },
+    { "type": "text",         "id": "eyebrow",    "label": "Eyebrow text",  "default": "Our Story" },
+    { "type": "text",         "id": "heading",    "label": "Heading",       "default": "The Science of Beautiful Hair" },
+    { "type": "text",         "id": "subheading", "label": "Subheading (italic)" },
+    { "type": "richtext",     "id": "text",       "label": "Body text" },
+    { "type": "text",         "id": "cta_label",  "label": "Button label",  "default": "Discover More" },
+    { "type": "text",         "id": "cta_url",    "label": "Button URL" }
+  ],
+  "presets": [{ "name": "Brand Story" }]
+}
+{% endschema %}

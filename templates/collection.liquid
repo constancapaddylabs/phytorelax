@@ -1,0 +1,81 @@
+<div class="collection-header">
+  <div class="container">
+    {% render 'breadcrumb' %}
+    <p class="eyebrow">{{ collection.metafields.custom.eyebrow | default: 'Hair Care' }}</p>
+    <h1>{{ collection.title }}</h1>
+    <div class="divider divider--center"></div>
+    {%- if collection.description != blank -%}
+      <p style="max-width:540px;margin:1rem auto 0;color:var(--color-muted);">{{ collection.description }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+<section class="section--sm">
+  <div class="container">
+
+    <!-- Filters & Sort -->
+    <div class="collection-filters">
+      <div class="filter-pills" role="group" aria-label="Filter products">
+        <button class="filter-pill active">All</button>
+        <button class="filter-pill">Shampoo</button>
+        <button class="filter-pill">Conditioner</button>
+        <button class="filter-pill">Treatment</button>
+        <button class="filter-pill">Styling</button>
+      </div>
+
+      <select class="sort-select"
+              aria-label="Sort products"
+              onchange="window.location.href = this.value">
+        <option value="{{ collection.url }}?sort_by=manual"
+                {% if collection.sort_by == 'manual' %}selected{% endif %}>
+          Featured
+        </option>
+        <option value="{{ collection.url }}?sort_by=best-selling"
+                {% if collection.sort_by == 'best-selling' %}selected{% endif %}>
+          Best Selling
+        </option>
+        <option value="{{ collection.url }}?sort_by=price-ascending"
+                {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>
+          Price: Low → High
+        </option>
+        <option value="{{ collection.url }}?sort_by=price-descending"
+                {% if collection.sort_by == 'price-descending' %}selected{% endif %}>
+          Price: High → Low
+        </option>
+        <option value="{{ collection.url }}?sort_by=created-descending"
+                {% if collection.sort_by == 'created-descending' %}selected{% endif %}>
+          Newest
+        </option>
+      </select>
+    </div>
+
+    <!-- Product Grid -->
+    {%- if collection.products.size > 0 -%}
+      <div class="collection-grid">
+        {%- paginate collection.products by 12 -%}
+          {%- for product in collection.products -%}
+            {% render 'product-card', product: product %}
+          {%- endfor -%}
+        {%- endpaginate -%}
+      </div>
+
+      <!-- Pagination -->
+      {%- if paginate.pages > 1 -%}
+        <div class="text-center mt-4">
+          {%- if paginate.previous -%}
+            <a href="{{ paginate.previous.url }}" class="btn btn--outline" style="margin-right:0.5rem;">← Previous</a>
+          {%- endif -%}
+          {%- if paginate.next -%}
+            <a href="{{ paginate.next.url }}" class="btn btn--outline">Next →</a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+
+    {%- else -%}
+      <p style="text-align:center;color:var(--color-muted);padding:4rem 0;">
+        No products found in this collection.
+      </p>
+    {%- endif -%}
+
+  </div>
+</section>

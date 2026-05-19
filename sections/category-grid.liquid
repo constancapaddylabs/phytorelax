@@ -1,0 +1,60 @@
+<section class="section">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.heading | default: 'Shop by Range' }}</h2>
+      <div class="divider divider--center"></div>
+    </div>
+
+    <div class="category-strip">
+      {%- for block in section.blocks -%}
+        {%- assign img = block.settings.image | image_url: width: 600 -%}
+        {%- if img == blank -%}{%- assign img = block.settings.fallback_image -%}{%- endif -%}
+        <a href="{{ block.settings.url | default: '#' }}" class="category-card" {{ block.shopify_attributes }}>
+          <img src="{{ img }}" alt="{{ block.settings.title }}" loading="lazy">
+          <div class="category-card__overlay">
+            <p class="category-card__title">{{ block.settings.title }}</p>
+            <p class="category-card__cta">Shop now →</p>
+          </div>
+        </a>
+      {%- endfor -%}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Category Grid",
+  "settings": [
+    { "type": "text", "id": "eyebrow",  "label": "Eyebrow text", "default": "Explore" },
+    { "type": "text", "id": "heading",  "label": "Heading",      "default": "Shop by Range" }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        { "type": "image_picker", "id": "image",          "label": "Image" },
+        { "type": "text",         "id": "fallback_image", "label": "Fallback image URL (for mockup)" },
+        { "type": "text",         "id": "title",          "label": "Title",   "default": "Hair Care" },
+        { "type": "text",         "id": "url",            "label": "Link URL" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category Grid",
+      "blocks": [
+        { "type": "category", "settings": { "title": "Curly Hair",      "fallback_image": "https://www.phytorelax.it/wp-content/uploads/2024/11/Curly-2.png" }},
+        { "type": "category", "settings": { "title": "Repair & Restore","fallback_image": "https://www.phytorelax.it/wp-content/uploads/2024/11/Repair-2.png" }},
+        { "type": "category", "settings": { "title": "Color Protect",   "fallback_image": "https://www.phytorelax.it/wp-content/uploads/2024/11/Color-2.png" }},
+        { "type": "category", "settings": { "title": "Argan Luxury",    "fallback_image": "https://www.phytorelax.it/wp-content/uploads/2024/11/Argan-2.png" }}
+      ]
+    }
+  ]
+}
+{% endschema %}

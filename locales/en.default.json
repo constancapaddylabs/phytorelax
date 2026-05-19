@@ -1,0 +1,50 @@
+{
+  "general": {
+    "meta": {
+      "page": "Page {{ page }}"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to Cart",
+      "sold_out": "Sold Out",
+      "quick_add": "Quick Add",
+      "quantity": "Quantity",
+      "vendor": "Brand"
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Your Cart",
+      "empty": "Your cart is empty.",
+      "checkout": "Proceed to Checkout",
+      "continue_shopping": "Continue Shopping",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "remove": "Remove"
+    }
+  },
+  "collections": {
+    "general": {
+      "no_products": "No products found."
+    },
+    "sorting": {
+      "featured": "Featured",
+      "best_selling": "Best Selling",
+      "title_ascending": "A – Z",
+      "title_descending": "Z – A",
+      "price_ascending": "Price: Low to High",
+      "price_descending": "Price: High to Low",
+      "created_descending": "Newest",
+      "created_ascending": "Oldest"
+    }
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "close": "Close",
+    "open_menu": "Open menu",
+    "close_menu": "Close menu",
+    "cart_count": "{{ count }} items in cart",
+    "search": "Search"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "current": {
+    "color_bg": "#FAF5F0",
+    "color_blush": "#EBBFCC",
+    "color_rose_gold": "#C4956A",
+    "color_dark": "#2C1E1E",
+    "body_font_size": 16,
+    "enable_cart_notes": false
+  },
+  "presets": {}
+}

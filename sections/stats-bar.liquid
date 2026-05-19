@@ -1,0 +1,44 @@
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      {%- for block in section.blocks -%}
+        <div class="stat-item fade-up" {{ block.shopify_attributes }}>
+          <div class="stat-item__number"
+               data-counter="{{ block.settings.number }}"
+               data-counter-suffix="{{ block.settings.suffix }}">
+            {{ block.settings.number }}{{ block.settings.suffix }}
+          </div>
+          <div class="stat-item__label">{{ block.settings.label }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Stats Bar",
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Number",  "default": "25" },
+        { "type": "text", "id": "suffix", "label": "Suffix (e.g. +, %)", "default": "+" },
+        { "type": "text", "id": "label",  "label": "Label",   "default": "Years of expertise" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stats Bar",
+      "blocks": [
+        { "type": "stat", "settings": { "number": "25",   "suffix": "+",  "label": "Years of expertise" }},
+        { "type": "stat", "settings": { "number": "120",  "suffix": "+",  "label": "Products in range" }},
+        { "type": "stat", "settings": { "number": "98",   "suffix": "%",  "label": "Customer satisfaction" }},
+        { "type": "stat", "settings": { "number": "40",   "suffix": "+",  "label": "Countries worldwide" }}
+      ]
+    }
+  ]
+}
+{% endschema %}
