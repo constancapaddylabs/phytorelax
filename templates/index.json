@@ -43,8 +43,9 @@
         "heading": "Bestsellers",
         "description": "Discover our most-loved formulas for smooth, frizz-free hair.",
         "collection": "",
+        "tag_filter": "",
         "product_limit": 4,
-        "show_view_all": true,
+        "show_view_all": false,
         "view_all_label": "View All Products"
       }
     },
