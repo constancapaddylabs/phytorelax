@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "color_bg": "#FAF5F0",
@@ -5,7 +14,33 @@
     "color_rose_gold": "#C4956A",
     "color_dark": "#2C1E1E",
     "body_font_size": 16,
-    "enable_cart_notes": false
+    "enable_cart_notes": false,
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "tagline": "Premium hair care crafted with nature's finest ingredients. Dermatologically tested and made in Italy.",
+          "col1_heading": "Shop",
+          "footer_shop_menu": "footer",
+          "col2_heading": "Contact",
+          "contact_email": "hello@phytorelax.com",
+          "contact_phone": "+99912321",
+          "col3_heading": "About",
+          "footer_about_menu": "footer",
+          "instagram_url": "",
+          "facebook_url": "",
+          "tiktok_url": "",
+          "footer_note": "Made with love in Italy · Dermatologically tested"
+        }
+      }
+    },
+    "content_for_index": []
   },
   "presets": {}
 }
