@@ -11,7 +11,7 @@
                height="auto"
                loading="eager">
         {%- else -%}
-          {{ shop.name }}
+          {{ section.settings.logo_text | default: shop.name }}
         {%- endif -%}
       </a>
 
@@ -64,7 +64,7 @@
 <!-- Mobile Nav Overlay -->
 <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
   <div class="mobile-nav__header">
-    <span class="site-logo">{{ shop.name }}</span>
+    <span class="site-logo">{{ section.settings.logo_text | default: shop.name }}</span>
     <button class="mobile-close-btn" aria-label="Close menu">&times;</button>
   </div>
   <div class="mobile-nav__links">
@@ -82,6 +82,12 @@
       "type": "image_picker",
       "id": "logo",
       "label": "Logo"
+    },
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text (used when no image is set)",
+      "default": "Velvet Botanica"
     },
     {
       "type": "link_list",
