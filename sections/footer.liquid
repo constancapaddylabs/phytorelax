@@ -31,23 +31,37 @@
         </ul>
       </div>
 
-      <!-- Help -->
+      <!-- Contact -->
       <div class="footer-col">
-        <h4>{{ section.settings.col2_heading }}</h4>
+        <h4>{{ section.settings.col2_heading | default: 'Contact' }}</h4>
         <ul>
-          {%- for link in linklists[section.settings.footer_help_menu].links -%}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {%- endfor -%}
+          {%- if section.settings.contact_email != blank -%}
+            <li><a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a></li>
+          {%- endif -%}
+          {%- if section.settings.contact_phone != blank -%}
+            <li><a href="tel:{{ section.settings.contact_phone }}">{{ section.settings.contact_phone }}</a></li>
+          {%- endif -%}
+          <li><a href="/contact">Contact Form</a></li>
         </ul>
       </div>
 
       <!-- About -->
       <div class="footer-col">
-        <h4>{{ section.settings.col3_heading }}</h4>
+        <h4>{{ section.settings.col3_heading | default: 'About' }}</h4>
         <ul>
           {%- for link in linklists[section.settings.footer_about_menu].links -%}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {%- endfor -%}
+          {%- if shop.privacy_policy != blank -%}
+            <li><a href="{{ shop.privacy_policy.url }}">Privacy Policy</a></li>
+          {%- else -%}
+            <li><a href="/policies/privacy-policy">Privacy Policy</a></li>
+          {%- endif -%}
+          {%- if shop.terms_of_service != blank -%}
+            <li><a href="{{ shop.terms_of_service.url }}">Terms &amp; Conditions</a></li>
+          {%- else -%}
+            <li><a href="/policies/terms-of-service">Terms &amp; Conditions</a></li>
+          {%- endif -%}
         </ul>
       </div>
 
@@ -86,13 +100,18 @@
       "type": "text",
       "id": "col2_heading",
       "label": "Column 2 heading",
-      "default": "Help"
+      "default": "Contact"
     },
     {
-      "type": "link_list",
-      "id": "footer_help_menu",
-      "label": "Column 2 menu",
-      "default": "footer"
+      "type": "text",
+      "id": "contact_email",
+      "label": "Contact email",
+      "default": "hello@phytorelax.com"
+    },
+    {
+      "type": "text",
+      "id": "contact_phone",
+      "label": "Contact phone"
     },
     {
       "type": "text",
