@@ -6,11 +6,13 @@
     {%- assign story_img = 'https://www.phytorelax.it/wp-content/uploads/2024/10/Body-ritual-1-819x1024.jpg' -%}
   {%- endif -%}
 
-  <div class="split-section__visual" data-parallax-wrap>
-    <img src="{{ story_img }}"
-         alt="{{ section.settings.image.alt | default: section.settings.heading }}"
+  <div class="split-section__visual"
+       data-parallax-wrap
+       role="img"
+       aria-label="{{ section.settings.image.alt | default: section.settings.heading }}">
+    <div class="split-section__visual-bg"
          data-parallax="0.18"
-         loading="lazy">
+         style="background-image: url('{{ story_img }}');"></div>
   </div>
 
   <div class="split-section__content">
