@@ -42,7 +42,7 @@
         "eyebrow": "Our Products",
         "heading": "Bestsellers",
         "description": "Discover our most-loved formulas for smooth, frizz-free hair.",
-        "collection": "",
+        "collection": "frontpage",
         "tag_filter": "",
         "product_limit": 4,
         "show_view_all": false,
