@@ -62,25 +62,25 @@
         "stat_Kmkcjm": {
           "type": "stat",
           "settings": {
-            "number": "25",
-            "suffix": "+",
-            "label": "Years of expertise"
+            "number": "4",
+            "suffix": "★",
+            "label": "Average Rating"
           }
         },
         "stat_Dwqyh7": {
           "type": "stat",
           "settings": {
-            "number": "25",
-            "suffix": "+",
-            "label": "Years of expertise"
+            "number": "50",
+            "suffix": "K",
+            "label": "Customers Worldwide"
           }
         },
         "stat_JNEGzx": {
           "type": "stat",
           "settings": {
-            "number": "25",
-            "suffix": "+",
-            "label": "Years of expertise"
+            "number": "100",
+            "suffix": "%",
+            "label": "Natural Ingredients"
           }
         }
       },
@@ -146,7 +146,7 @@
         ".title-reveal {color: #2c1e1e !important;}"
       ],
       "settings": {
-        "image": "shopify://shop_images/herobackground.png",
+        "image": "shopify://shop_images/pexels-itstorresgodwin-18186528_29b40a06-550e-4c91-9c5c-27dac474f9cf.png",
         "reverse": false,
         "eyebrow": "Our Story",
         "heading": "The Science of Beautiful Hair",
@@ -162,7 +162,7 @@
         "ingredient_d33Cxq": {
           "type": "ingredient",
           "settings": {
-            "icon": "🌿",
+            "icon": "🧬",
             "name": "Hydrolyzed Keratin",
             "description": "Fills gaps in the hair shaft to restore smoothness and strength, reducing frizz from within."
           }
@@ -171,24 +171,24 @@
           "type": "ingredient",
           "settings": {
             "icon": "🌿",
-            "name": "Hydrolyzed Keratin",
-            "description": "Fills gaps in the hair shaft to restore smoothness and strength, reducing frizz from within."
+            "name": "Argan Oil",
+            "description": "Rich in vitamin E and fatty acids, it deeply nourishes and adds brilliant shine to dry or damaged hair."
           }
         },
         "ingredient_4zNtPf": {
           "type": "ingredient",
           "settings": {
-            "icon": "🌿",
-            "name": "Hydrolyzed Keratin",
-            "description": "Fills gaps in the hair shaft to restore smoothness and strength, reducing frizz from within."
+            "icon": "💧",
+            "name": "Hyaluronic Acid",
+            "description": "Attracts and locks in moisture to keep hair hydrated, soft, and full of life all day long."
           }
         },
         "ingredient_DQF3BQ": {
           "type": "ingredient",
           "settings": {
-            "icon": "🌿",
-            "name": "Hydrolyzed Keratin",
-            "description": "Fills gaps in the hair shaft to restore smoothness and strength, reducing frizz from within."
+            "icon": "🌸",
+            "name": "Collagen Complex",
+            "description": "Reinforces the hair structure from root to tip, boosting elasticity and preventing breakage."
           }
         }
       },
@@ -213,23 +213,23 @@
           "settings": {
             "quote": "This product completely transformed my hair. Absolutely love it!",
             "author": "Sofia M.",
-            "stars": 5
+            "stars": 4
           }
         },
         "testimonial_iyN8W8": {
           "type": "testimonial",
           "settings": {
-            "quote": "This product completely transformed my hair. Absolutely love it!",
-            "author": "Sofia M.",
+            "quote": "Finally a product that actually tames my frizz. Obsessed.",
+            "author": "Laura K.",
             "stars": 5
           }
         },
         "testimonial_CR8REx": {
           "type": "testimonial",
           "settings": {
-            "quote": "This product completely transformed my hair. Absolutely love it!",
-            "author": "Sofia M.",
-            "stars": 5
+            "quote": "Worth every penny. My hair transformed in just two weeks.",
+            "author": "Anna P.",
+            "stars": 4
           }
         }
       },
