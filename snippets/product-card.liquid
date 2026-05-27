@@ -17,11 +17,18 @@
       {%- endif -%}
     </a>
 
-    {%- if product.compare_at_price > product.price -%}
-      <span class="product-card__badge">Sale</span>
-    {%- elsif product.tags contains 'new' -%}
-      <span class="product-card__badge">New</span>
-    {%- endif -%}
+    <div class="product-card__badges">
+      {%- if product.compare_at_price > product.price -%}
+        <span class="product-card__badge">Sale</span>
+      {%- endif -%}
+      {%- if product.tags contains 'editors-choice' -%}
+        <span class="product-card__badge product-card__badge--choice">Editor's Choice</span>
+      {%- elsif product.tags contains 'creators-choice' -%}
+        <span class="product-card__badge product-card__badge--choice">Creator's Choice</span>
+      {%- elsif product.tags contains 'new' -%}
+        <span class="product-card__badge">New</span>
+      {%- endif -%}
+    </div>
 
     <button class="product-card__quick-add btn"
             data-variant-id="{{ first_variant.id }}"

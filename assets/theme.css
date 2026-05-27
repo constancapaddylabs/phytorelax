@@ -380,9 +380,17 @@ h4 { font-size: 1.25rem; font-weight: 600; }
   transform: scale(1.05);
 }
 
-.product-card__badge {
+.product-card__badges {
   position: absolute;
   top: 1rem; left: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  z-index: 1;
+}
+
+.product-card__badge {
+  display: inline-block;
   background: var(--color-rose-gold);
   color: var(--color-white);
   font-size: 0.62rem;
@@ -391,6 +399,10 @@ h4 { font-size: 1.25rem; font-weight: 600; }
   text-transform: uppercase;
   padding: 0.3rem 0.7rem;
   border-radius: 2px;
+}
+
+.product-card__badge--choice {
+  background: var(--color-dark);
 }
 
 .product-card__quick-add {
