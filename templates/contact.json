@@ -1,0 +1,17 @@
+{
+  "sections": {
+    "main": {
+      "type": "contact-page",
+      "settings": {
+        "eyebrow": "Get in Touch",
+        "heading": "Contact Us",
+        "subtext": "We'd love to hear from you. Fill in the form and we'll get back to you within 1–2 business days.",
+        "info_heading": "Our Details",
+        "email": "hello@phytorelax.com",
+        "location": "Made in Italy",
+        "hours": "Within 1–2 business days"
+      }
+    }
+  },
+  "order": ["main"]
+}

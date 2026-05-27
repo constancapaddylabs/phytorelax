@@ -1,0 +1,172 @@
+<div class="contact-header">
+  <div class="container">
+    {% render 'breadcrumb' %}
+    <p class="eyebrow">{{ section.settings.eyebrow | default: 'Get in Touch' }}</p>
+    <h1>{{ section.settings.heading | default: 'Contact Us' }}</h1>
+    <div class="divider divider--center"></div>
+    {%- if section.settings.subtext != blank -%}
+      <p class="contact-header__sub">{{ section.settings.subtext }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Info column -->
+      <div class="contact-info fade-up">
+        <h3 class="contact-info__heading">{{ section.settings.info_heading | default: 'Our Details' }}</h3>
+        <div class="divider" style="margin: 1rem 0 2rem;"></div>
+
+        {%- if section.settings.email != blank -%}
+          <div class="contact-info__item">
+            <span class="contact-info__label">Email</span>
+            <a href="mailto:{{ section.settings.email }}" class="contact-info__value">{{ section.settings.email }}</a>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.phone != blank -%}
+          <div class="contact-info__item">
+            <span class="contact-info__label">Phone</span>
+            <a href="tel:{{ section.settings.phone }}" class="contact-info__value">{{ section.settings.phone }}</a>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.location != blank -%}
+          <div class="contact-info__item">
+            <span class="contact-info__label">Location</span>
+            <span class="contact-info__value">{{ section.settings.location }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.hours != blank -%}
+          <div class="contact-info__item">
+            <span class="contact-info__label">Response Time</span>
+            <span class="contact-info__value">{{ section.settings.hours }}</span>
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.instagram_url != blank or section.settings.facebook_url != blank or section.settings.tiktok_url != blank -%}
+          <div class="contact-info__social">
+            {%- if section.settings.instagram_url != blank -%}
+              <a href="{{ section.settings.instagram_url }}" class="social-btn" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+            {%- endif -%}
+            {%- if section.settings.facebook_url != blank -%}
+              <a href="{{ section.settings.facebook_url }}" class="social-btn" aria-label="Facebook" target="_blank" rel="noopener">FB</a>
+            {%- endif -%}
+            {%- if section.settings.tiktok_url != blank -%}
+              <a href="{{ section.settings.tiktok_url }}" class="social-btn" aria-label="TikTok" target="_blank" rel="noopener">TK</a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      </div>
+
+      <!-- Form column -->
+      <div class="contact-form-wrap fade-up">
+        {% form 'contact' %}
+
+          {%- if form.posted_successfully? -%}
+            <div class="contact-success">
+              <div class="contact-success__icon" aria-hidden="true">✓</div>
+              <p class="eyebrow" style="margin-bottom:0.5rem;">Message Sent</p>
+              <h3 style="margin-bottom:1rem;">Thank you for reaching out!</h3>
+              <p style="color:var(--color-muted);">We'll get back to you within {{ section.settings.hours | default: '1–2 business days' }}.</p>
+              <a href="{{ routes.root_url }}" class="btn btn--outline" style="margin-top:2rem;">Back to Home</a>
+            </div>
+
+          {%- else -%}
+
+            {%- if form.errors -%}
+              <div class="contact-error">
+                {{ form.errors | default_errors }}
+              </div>
+            {%- endif -%}
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="ContactFormName">
+                  Full Name <span class="form-required" aria-hidden="true">*</span>
+                </label>
+                <input class="form-input"
+                       type="text"
+                       id="ContactFormName"
+                       name="contact[name]"
+                       value="{{ form.name }}"
+                       required
+                       autocomplete="name"
+                       placeholder="Your name">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="ContactFormEmail">
+                  Email Address <span class="form-required" aria-hidden="true">*</span>
+                </label>
+                <input class="form-input"
+                       type="email"
+                       id="ContactFormEmail"
+                       name="contact[email]"
+                       value="{{ form.email }}"
+                       required
+                       autocomplete="email"
+                       placeholder="your@email.com">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ContactFormSubject">Subject</label>
+              <select class="form-input form-select" id="ContactFormSubject" name="contact[subject]">
+                <option value="">Select a topic…</option>
+                <option value="Order enquiry">Order Enquiry</option>
+                <option value="Product question">Product Question</option>
+                <option value="Returns &amp; refunds">Returns &amp; Refunds</option>
+                <option value="Press &amp; collaboration">Press &amp; Collaboration</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="ContactFormMessage">
+                Message <span class="form-required" aria-hidden="true">*</span>
+              </label>
+              <textarea class="form-input form-textarea"
+                        id="ContactFormMessage"
+                        name="contact[body]"
+                        rows="6"
+                        required
+                        placeholder="How can we help?">{{ form.body }}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary contact-submit">
+              Send Message
+            </button>
+
+          {%- endif -%}
+
+        {% endform %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Page",
+  "settings": [
+    { "type": "text",     "id": "eyebrow",     "label": "Eyebrow",           "default": "Get in Touch" },
+    { "type": "text",     "id": "heading",     "label": "Heading",           "default": "Contact Us" },
+    { "type": "textarea", "id": "subtext",     "label": "Subtitle",          "default": "We'd love to hear from you. Fill in the form and we'll get back to you within 1–2 business days." },
+    { "type": "header",                        "content": "Contact Details" },
+    { "type": "text",     "id": "info_heading","label": "Info heading",      "default": "Our Details" },
+    { "type": "text",     "id": "email",       "label": "Email address",     "default": "hello@phytorelax.com" },
+    { "type": "text",     "id": "phone",       "label": "Phone number" },
+    { "type": "text",     "id": "location",    "label": "Location",          "default": "Made in Italy" },
+    { "type": "text",     "id": "hours",       "label": "Response time",     "default": "Within 1–2 business days" },
+    { "type": "header",                        "content": "Social Links" },
+    { "type": "text",     "id": "instagram_url","label": "Instagram URL" },
+    { "type": "text",     "id": "facebook_url", "label": "Facebook URL" },
+    { "type": "text",     "id": "tiktok_url",   "label": "TikTok URL" }
+  ],
+  "presets": [{ "name": "Contact Page" }]
+}
+{% endschema %}
