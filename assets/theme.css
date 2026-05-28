@@ -172,7 +172,7 @@ h4 { font-size: 1.25rem; font-weight: 600; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 88px;
 }
 
 .site-logo {
@@ -182,7 +182,20 @@ h4 { font-size: 1.25rem; font-weight: 600; }
   color: var(--color-dark);
   letter-spacing: 0.04em;
   font-style: italic;
+  display: flex;
+  align-items: center;
 }
+
+.site-logo__img {
+  display: block;
+  width: auto;
+  height: 76px;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+.footer-logo { margin-bottom: 1rem; }
+.footer-logo .site-logo__img { height: 80px; }
 
 .main-nav { display: flex; align-items: center; gap: 2rem; }
 
@@ -1227,7 +1240,7 @@ a.contact-info__value:hover { color: var(--color-rose-gold); }
   border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
-.footer-brand .site-logo { color: var(--color-white); font-size: 1.8rem; display: block; margin-bottom: 1rem; }
+.footer-brand .site-logo { color: var(--color-white); font-size: 1.8rem; }
 .footer-brand p { font-size: 0.88rem; line-height: 1.75; }
 
 .footer-col h4 {

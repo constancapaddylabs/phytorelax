@@ -4,8 +4,15 @@
 
       <!-- Brand -->
       <div class="footer-brand">
-        <a href="{{ routes.root_url }}" class="site-logo" style="display:block;margin-bottom:1rem;">
-          {% render 'logo-svg', width: 64, height: 64 %}
+        <a href="{{ routes.root_url }}" class="site-logo footer-logo" aria-label="{{ shop.name }}">
+          {%- if section.settings.logo != blank -%}
+            <img src="{{ section.settings.logo | image_url: width: 160 }}"
+                 alt="{{ shop.name }}"
+                 class="site-logo__img"
+                 loading="lazy">
+          {%- else -%}
+            {{ section.settings.logo_text | default: shop.name }}
+          {%- endif -%}
         </a>
         <p>{{ section.settings.tagline }}</p>
         <div class="footer-social">
@@ -79,9 +86,14 @@
   "name": "Footer",
   "settings": [
     {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
       "type": "text",
       "id": "logo_text",
-      "label": "Logo text",
+      "label": "Logo text (shown if no image)",
       "default": "Velvet Botanica"
     },
     {
