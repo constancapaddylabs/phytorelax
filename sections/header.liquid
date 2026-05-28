@@ -17,7 +17,11 @@
       <!-- Desktop Nav -->
       <nav class="main-nav" aria-label="Main navigation">
         {%- for link in linklists[section.settings.menu].links -%}
-          <a href="{{ link.url }}"
+          {%- assign nav_url = link.url -%}
+          {%- if link.title == 'Contact' or link.title == 'CONTACT' or link.title == 'contact' -%}
+            {%- assign nav_url = '/contact#contact-form' -%}
+          {%- endif -%}
+          <a href="{{ nav_url }}"
              {% if link.active %}class="active" aria-current="page"{% endif %}>
             {{ link.title }}
           </a>
@@ -77,7 +81,11 @@
   </div>
   <div class="mobile-nav__links">
     {%- for link in linklists[section.settings.menu].links -%}
-      <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- assign mob_url = link.url -%}
+      {%- if link.title == 'Contact' or link.title == 'CONTACT' or link.title == 'contact' -%}
+        {%- assign mob_url = '/contact#contact-form' -%}
+      {%- endif -%}
+      <a href="{{ mob_url }}">{{ link.title }}</a>
     {%- endfor -%}
   </div>
 </nav>
