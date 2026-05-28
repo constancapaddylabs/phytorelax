@@ -147,6 +147,18 @@ h4 { font-size: 1.25rem; font-weight: 600; }
   color: var(--color-white);
 }
 
+.btn--gold {
+  background: var(--color-rose-gold);
+  color: var(--color-dark);
+  font-weight: 700;
+}
+.btn--gold:hover {
+  background: var(--color-rose-dark);
+  color: var(--color-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
 /* --- DIVIDER --- */
 .divider {
   width: 48px;

@@ -52,8 +52,8 @@
 
       <div class="hero__actions">
         {%- if section.settings.cta_label != blank -%}
-          <a href="{{ section.settings.cta_url | default: routes.collections_url }}"
-             class="btn btn--primary">
+          <a href="{{ section.settings.cta_url | default: routes.all_products_collection_url }}"
+             class="btn btn--gold">
             {{ section.settings.cta_label }}
           </a>
         {%- endif -%}
