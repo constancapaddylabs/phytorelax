@@ -13,9 +13,9 @@
       "type": "hero-banner",
       "settings": {
         "background_image": "shopify://shop_images/velvet-green-wide-background.png",
-        "product_image": "shopify://shop_images/shampo1.png",
+        "product_image": "shopify://shop_images/keratin-product-tall_078b0fea-b31c-4719-98b1-c56a798f1f87.png",
         "show_product_float": true,
-        "overlay_opacity": 10,
+        "overlay_opacity": 0,
         "eyebrow": "Premium Hair Care",
         "heading": "Unlock Your Hair's True Potential",
         "subheading": "Science-backed formulas with nature's finest ingredients.",
