@@ -1466,7 +1466,7 @@ a.contact-info__value:hover { color: var(--color-rose-gold); }
 
 /* --- STATS BAR --- */
 .stats-bar {
-  background: linear-gradient(135deg, var(--color-dark) 0%, #3D2020 100%);
+  background: var(--color-dark);
   padding-block: 3.5rem;
 }
 
@@ -1584,6 +1584,10 @@ a.contact-info__value:hover { color: var(--color-rose-gold); }
 @keyframes floatUpDown {
   0%, 100% { transform: translateY(-50%) translateY(0px); }
   50%       { transform: translateY(-50%) translateY(-18px); }
+}
+
+@media (max-width: 768px) {
+  .hero__product-float { display: none; }
 }
 
 /* --- INGREDIENT CARD HOVER GLOW --- */

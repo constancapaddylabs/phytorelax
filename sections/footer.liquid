@@ -62,7 +62,9 @@
         <h4>{{ section.settings.col3_heading | default: 'About' }}</h4>
         <ul>
           {%- for link in linklists[section.settings.footer_about_menu].links -%}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- unless link.title == 'Search' or link.title == 'search' or link.title == 'SEARCH' -%}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {%- endunless -%}
           {%- endfor -%}
           {%- if shop.privacy_policy != blank -%}
             <li><a href="{{ shop.privacy_policy.url }}">Privacy Policy</a></li>
