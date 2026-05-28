@@ -93,6 +93,19 @@
       ],
       "settings": {}
     },
+    "social_media_TckNPf": {
+      "type": "social-media",
+      "name": "Social Media",
+      "settings": {
+        "eyebrow": "Follow Us",
+        "heading": "@velvetbotanicallc",
+        "subtext": "",
+        "instagram_url": "https://www.instagram.com/velvetbotanicallc?igsh=cG53ZzlvM3RoZ2Vx",
+        "video_portrait_url": "",
+        "video_square_url": "",
+        "cta_label": "Follow on Instagram"
+      }
+    },
     "categories": {
       "type": "category-grid",
       "blocks": {
@@ -253,6 +266,7 @@
     "marquee",
     "featured",
     "stats",
+    "social_media_TckNPf",
     "categories",
     "brand-story",
     "ingredients",
