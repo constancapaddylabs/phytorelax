@@ -19,7 +19,7 @@
         {%- for link in linklists[section.settings.menu].links -%}
           {%- assign nav_url = link.url -%}
           {%- if link.title == 'Contact' or link.title == 'CONTACT' or link.title == 'contact' -%}
-            {%- assign nav_url = '/contact#contact-form' -%}
+            {%- assign nav_url = '/pages/contact' -%}
           {%- endif -%}
           <a href="{{ nav_url }}"
              {% if link.active %}class="active" aria-current="page"{% endif %}>
@@ -83,7 +83,7 @@
     {%- for link in linklists[section.settings.menu].links -%}
       {%- assign mob_url = link.url -%}
       {%- if link.title == 'Contact' or link.title == 'CONTACT' or link.title == 'contact' -%}
-        {%- assign mob_url = '/contact#contact-form' -%}
+        {%- assign mob_url = '/pages/contact' -%}
       {%- endif -%}
       <a href="{{ mob_url }}">{{ link.title }}</a>
     {%- endfor -%}
