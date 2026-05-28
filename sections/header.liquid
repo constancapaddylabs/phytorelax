@@ -11,7 +11,7 @@
                height="auto"
                loading="eager">
         {%- else -%}
-          {{ section.settings.logo_text | default: shop.name }}
+          {% render 'logo-svg', width: 200, height: 47 %}
         {%- endif -%}
       </a>
 
@@ -64,7 +64,7 @@
 <!-- Mobile Nav Overlay -->
 <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
   <div class="mobile-nav__header">
-    <span class="site-logo">{{ section.settings.logo_text | default: shop.name }}</span>
+    <span class="site-logo">{% render 'logo-svg', width: 160, height: 38 %}</span>
     <button class="mobile-close-btn" aria-label="Close menu">&times;</button>
   </div>
   <div class="mobile-nav__links">

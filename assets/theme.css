@@ -1,21 +1,21 @@
 /* ============================================================
-   TRESSES — Hair Care Shopify Theme
-   Palette: Blush rose · Ivory cream · Rose gold · Deep warm dark
+   VELVET BOTANICA — Hair Care Shopify Theme
+   Palette: Forest green · Ivory cream · Antique gold · Deep emerald
    ============================================================ */
 
 /* --- VARIABLES --- */
 :root {
-  --color-bg:          #FAF5F0;
+  --color-bg:          #F8F6F0;
   --color-white:       #FFFFFF;
-  --color-blush:       #EBBFCC;
-  --color-blush-light: #F5DDE6;
-  --color-rose-gold:   #C4956A;
-  --color-rose-dark:   #9E6B50;
-  --color-dark:        #2C1E1E;
-  --color-text:        #4A3728;
-  --color-muted:       #9B8580;
-  --color-border:      #E8D8D0;
-  --color-overlay:     rgba(44, 30, 30, 0.45);
+  --color-blush:       #D4C589;
+  --color-blush-light: #EDF2EA;
+  --color-rose-gold:   #C4A84C;
+  --color-rose-dark:   #9E8530;
+  --color-dark:        #1C3D2A;
+  --color-text:        #2C4A34;
+  --color-muted:       #7D9485;
+  --color-border:      #CAD5BA;
+  --color-overlay:     rgba(28, 61, 42, 0.50);
 
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-sub:     'Cormorant Garamond', Georgia, serif;
@@ -27,8 +27,8 @@
   --radius-lg: 12px;
 
   --transition: 0.3s ease;
-  --shadow-sm:  0 2px 12px rgba(196,149,106,0.12);
-  --shadow-md:  0 6px 28px rgba(44,30,30,0.14);
+  --shadow-sm:  0 2px 12px rgba(196, 168, 76, 0.15);
+  --shadow-md:  0 6px 28px rgba(28, 61, 42, 0.18);
 }
 
 /* --- RESET --- */

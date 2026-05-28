@@ -1,0 +1,63 @@
+{% comment %}
+  Usage: {% render 'logo-svg', width: 200, height: 47 %}
+{% endcomment %}
+{%- assign svg_width  = width  | default: 200 -%}
+{%- assign svg_height = height | default: 47 -%}
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 300 70"
+     width="{{ svg_width }}"
+     height="{{ svg_height }}"
+     role="img"
+     aria-label="{{ shop.name }}">
+
+  <!-- LEFT BRANCH — upper stem -->
+  <path d="M108,36 C92,32 75,25 55,18 C42,13 27,12 14,17"
+        stroke="#C4A84C" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  <!-- LEFT BRANCH — lower stem -->
+  <path d="M108,40 C92,44 76,48 58,50 C44,52 30,50 18,46"
+        stroke="#C4A84C" stroke-width="1" fill="none" stroke-linecap="round"/>
+
+  <!-- Upper leaves — left -->
+  <path d="M88,34 C83,26 76,24 71,28 C76,30 83,32 88,34Z"        fill="#C4A84C"/>
+  <path d="M70,27 C63,18 55,16 50,21 C55,22 63,25 70,27Z"         fill="#C4A84C"/>
+  <path d="M51,19 C43,11 35,10 31,15 C36,15 43,17 51,19Z"         fill="#C4A84C"/>
+  <path d="M28,16 C22,9 16,9 13,14 C17,14 22,15 28,16Z"           fill="#C4A84C" opacity="0.85"/>
+
+  <!-- Lower leaves — left -->
+  <path d="M88,40 C83,48 76,50 71,46 C76,44 83,42 88,40Z"         fill="#C4A84C"/>
+  <path d="M70,46 C63,55 55,56 50,51 C55,50 63,48 70,46Z"         fill="#C4A84C"/>
+  <path d="M52,50 C44,58 36,58 32,53 C37,52 44,51 52,50Z"         fill="#C4A84C" opacity="0.85"/>
+  <circle cx="17" cy="44" r="2.4" fill="#C4A84C" opacity="0.8"/>
+  <circle cx="12" cy="48" r="1.7" fill="#C4A84C" opacity="0.65"/>
+
+  <!-- VB MONOGRAM -->
+  <text x="150" y="52"
+        font-family="'Playfair Display', Georgia, serif"
+        font-size="48"
+        fill="#C4A84C"
+        text-anchor="middle"
+        font-weight="500"
+        letter-spacing="-2">VB</text>
+
+  <!-- RIGHT BRANCH — upper stem -->
+  <path d="M192,36 C208,32 225,25 245,18 C258,13 273,12 286,17"
+        stroke="#C4A84C" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  <!-- RIGHT BRANCH — lower stem -->
+  <path d="M192,40 C208,44 224,48 242,50 C256,52 270,50 282,46"
+        stroke="#C4A84C" stroke-width="1" fill="none" stroke-linecap="round"/>
+
+  <!-- Upper leaves — right -->
+  <path d="M212,34 C217,26 224,24 229,28 C224,30 217,32 212,34Z"  fill="#C4A84C"/>
+  <path d="M230,27 C237,18 245,16 250,21 C245,22 237,25 230,27Z"  fill="#C4A84C"/>
+  <path d="M249,19 C257,11 265,10 269,15 C264,15 257,17 249,19Z"  fill="#C4A84C"/>
+  <path d="M272,16 C278,9 284,9 287,14 C283,14 278,15 272,16Z"    fill="#C4A84C" opacity="0.85"/>
+
+  <!-- Lower leaves — right -->
+  <path d="M212,40 C217,48 224,50 229,46 C224,44 217,42 212,40Z"  fill="#C4A84C"/>
+  <path d="M230,46 C237,55 245,56 250,51 C245,50 237,48 230,46Z"  fill="#C4A84C"/>
+  <path d="M248,50 C256,58 264,58 268,53 C263,52 256,51 248,50Z"  fill="#C4A84C" opacity="0.85"/>
+  <circle cx="283" cy="44" r="2.4" fill="#C4A84C" opacity="0.8"/>
+  <circle cx="288" cy="48" r="1.7" fill="#C4A84C" opacity="0.65"/>
+
+</svg>
