@@ -101,8 +101,11 @@
         "heading": "@velvetbotanicallc",
         "subtext": "",
         "instagram_url": "https://www.instagram.com/velvetbotanicallc?igsh=cG53ZzlvM3RoZ2Vx",
-        "video_portrait_url": "",
-        "video_square_url": "",
+        "video_portrait_url": "https://cdn.shopify.com/videos/c/o/v/0f92834de0334e4ab10303a27e664bda.mp4",
+        "video_square_url": "https://cdn.shopify.com/videos/c/o/v/1a20ccf791b34c4782edd19cf2efe645.mp4",
+        "ig_image_1": "shopify://shop_images/hair.png",
+        "ig_image_2": "shopify://shop_images/0B44A844-1F50-4752-B58F-DE8498E66AFB.png",
+        "ig_image_3": "shopify://shop_images/A470D64C-B86E-43BC-BAE2-3C63F4A9D922.png",
         "cta_label": "Follow on Instagram"
       }
     },
@@ -160,7 +163,7 @@
         ".title-reveal {color: #2c1e1e !important;}"
       ],
       "settings": {
-        "image": "shopify://shop_images/pexels-hairlust-official-2158267570-35267456.jpg",
+        "image": "shopify://shop_images/hair.png",
         "reverse": false,
         "eyebrow": "Our Story",
         "heading": "The Science of Beautiful Hair",
