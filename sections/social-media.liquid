@@ -1,0 +1,213 @@
+<section class="social-section section">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="section-header fade-up">
+      {%- if section.settings.eyebrow != blank -%}
+        <p class="eyebrow">{{ section.settings.eyebrow }}</p>
+      {%- endif -%}
+      <h2>{{ section.settings.heading | default: '@velvetbotanica' }}</h2>
+      <div class="divider divider--center"></div>
+      {%- if section.settings.subtext != blank -%}
+        <p style="color:var(--color-muted);max-width:440px;margin:0.8rem auto 0;">{{ section.settings.subtext }}</p>
+      {%- endif -%}
+    </div>
+
+    <!-- Grid -->
+    <div class="social-grid">
+
+      <!-- Tile 1: Portrait video (9:16) — spans 2 rows -->
+      <div class="social-tile social-tile--portrait">
+        {%- if section.settings.video_portrait_url != blank -%}
+          <video class="social-tile__video"
+                 autoplay muted loop playsinline
+                 aria-label="Velvet Botanica reel">
+            <source src="{{ section.settings.video_portrait_url }}" type="video/mp4">
+          </video>
+        {%- else -%}
+          <div class="social-tile__placeholder">
+            <span class="social-tile__placeholder-icon">▶</span>
+            <p>Upload portrait video (9:16)</p>
+          </div>
+        {%- endif -%}
+        <div class="social-tile__overlay">
+          <span class="social-tile__badge">Reel</span>
+          {%- if section.settings.instagram_url != blank -%}
+            <a href="{{ section.settings.instagram_url }}"
+               class="social-tile__ig-link"
+               target="_blank" rel="noopener"
+               aria-label="View on Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Tile 2: Square video (1:1) -->
+      <div class="social-tile social-tile--square">
+        {%- if section.settings.video_square_url != blank -%}
+          <video class="social-tile__video"
+                 autoplay muted loop playsinline
+                 aria-label="Velvet Botanica product video">
+            <source src="{{ section.settings.video_square_url }}" type="video/mp4">
+          </video>
+        {%- else -%}
+          <div class="social-tile__placeholder">
+            <span class="social-tile__placeholder-icon">▶</span>
+            <p>Upload square video (1:1)</p>
+          </div>
+        {%- endif -%}
+        <div class="social-tile__overlay">
+          <span class="social-tile__badge">Video</span>
+          {%- if section.settings.instagram_url != blank -%}
+            <a href="{{ section.settings.instagram_url }}"
+               class="social-tile__ig-link"
+               target="_blank" rel="noopener"
+               aria-label="View on Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Tile 3: Instagram photo top-right -->
+      <div class="social-tile social-tile--square">
+        {%- if section.settings.ig_image_1 != blank -%}
+          <img class="social-tile__img"
+               src="{{ section.settings.ig_image_1 | image_url: width: 600 }}"
+               alt="Instagram post"
+               loading="lazy">
+        {%- else -%}
+          <div class="social-tile__placeholder">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+        {%- endif -%}
+        <div class="social-tile__overlay">
+          {%- if section.settings.instagram_url != blank -%}
+            <a href="{{ section.settings.instagram_url }}"
+               class="social-tile__ig-link"
+               target="_blank" rel="noopener"
+               aria-label="View on Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Tile 4: Instagram photo bottom-middle -->
+      <div class="social-tile social-tile--square">
+        {%- if section.settings.ig_image_2 != blank -%}
+          <img class="social-tile__img"
+               src="{{ section.settings.ig_image_2 | image_url: width: 600 }}"
+               alt="Instagram post"
+               loading="lazy">
+        {%- else -%}
+          <div class="social-tile__placeholder">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+        {%- endif -%}
+        <div class="social-tile__overlay">
+          {%- if section.settings.instagram_url != blank -%}
+            <a href="{{ section.settings.instagram_url }}"
+               class="social-tile__ig-link"
+               target="_blank" rel="noopener"
+               aria-label="View on Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <!-- Tile 5: Instagram photo bottom-right -->
+      <div class="social-tile social-tile--square">
+        {%- if section.settings.ig_image_3 != blank -%}
+          <img class="social-tile__img"
+               src="{{ section.settings.ig_image_3 | image_url: width: 600 }}"
+               alt="Instagram post"
+               loading="lazy">
+        {%- else -%}
+          <div class="social-tile__placeholder">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.4">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+        {%- endif -%}
+        <div class="social-tile__overlay">
+          {%- if section.settings.instagram_url != blank -%}
+            <a href="{{ section.settings.instagram_url }}"
+               class="social-tile__ig-link"
+               target="_blank" rel="noopener"
+               aria-label="View on Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Follow CTA -->
+    {%- if section.settings.instagram_url != blank -%}
+      <div class="text-center" style="margin-top:2.5rem;">
+        <a href="{{ section.settings.instagram_url }}"
+           class="btn btn--outline"
+           target="_blank" rel="noopener">
+          {{ section.settings.cta_label | default: 'Follow on Instagram' }}
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Social Media",
+  "settings": [
+    { "type": "text",         "id": "eyebrow",            "label": "Eyebrow",                  "default": "Follow Us" },
+    { "type": "text",         "id": "heading",            "label": "Instagram handle",         "default": "@velvetbotanica" },
+    { "type": "textarea",     "id": "subtext",            "label": "Subtitle" },
+    { "type": "url",          "id": "instagram_url",      "label": "Instagram profile URL" },
+    { "type": "header",                                   "content": "Videos" },
+    { "type": "text",         "id": "video_portrait_url", "label": "Portrait video URL (9:16 Reel)", "info": "Upload your MP4 to Shopify Files and paste the URL here" },
+    { "type": "text",         "id": "video_square_url",   "label": "Square video URL (1:1)",         "info": "Upload your MP4 to Shopify Files and paste the URL here" },
+    { "type": "header",                                   "content": "Instagram Photos" },
+    { "type": "image_picker", "id": "ig_image_1",         "label": "Photo 1 (top right)" },
+    { "type": "image_picker", "id": "ig_image_2",         "label": "Photo 2 (bottom middle)" },
+    { "type": "image_picker", "id": "ig_image_3",         "label": "Photo 3 (bottom right)" },
+    { "type": "header",                                   "content": "Button" },
+    { "type": "text",         "id": "cta_label",          "label": "Button label",             "default": "Follow on Instagram" }
+  ],
+  "presets": [{ "name": "Social Media" }]
+}
+{% endschema %}

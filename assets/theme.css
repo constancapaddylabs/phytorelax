@@ -922,6 +922,141 @@ h4 { font-size: 1.25rem; font-weight: 600; }
 
 .cart-summary__cta { margin-top: 1.5rem; }
 
+/* --- SOCIAL MEDIA SECTION --- */
+.social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 6px;
+  margin-top: 2.5rem;
+}
+
+/* Portrait tile (9:16) spans both rows in column 1 */
+.social-tile--portrait {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+/* All other tiles are square */
+.social-tile--square {
+  aspect-ratio: 1 / 1;
+}
+
+.social-tile {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-blush-light);
+  border-radius: 4px;
+}
+
+.social-tile__video,
+.social-tile__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.social-tile:hover .social-tile__video,
+.social-tile:hover .social-tile__img {
+  transform: scale(1.04);
+}
+
+/* Hover overlay */
+.social-tile__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(28, 61, 42, 0);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+  transition: background 0.3s ease;
+}
+
+.social-tile:hover .social-tile__overlay {
+  background: rgba(28, 61, 42, 0.45);
+}
+
+.social-tile__badge {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: rgba(196, 168, 76, 0.9);
+  padding: 0.25rem 0.6rem;
+  border-radius: 2px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.social-tile:hover .social-tile__badge {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.social-tile__ig-link {
+  color: var(--color-white);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.social-tile:hover .social-tile__ig-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Placeholder state (before media is uploaded) */
+.social-tile__placeholder {
+  width: 100%;
+  height: 100%;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  color: var(--color-muted);
+  font-size: 0.78rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.social-tile__placeholder-icon {
+  font-size: 1.8rem;
+  opacity: 0.4;
+}
+
+@media (max-width: 768px) {
+  .social-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .social-tile--portrait {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    aspect-ratio: 4 / 3;
+  }
+  .social-tile--portrait .social-tile__video { object-position: center top; }
+}
+
+@media (max-width: 480px) {
+  .social-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+  }
+  .social-tile--portrait {
+    grid-column: 1 / span 2;
+    aspect-ratio: 16 / 9;
+  }
+}
+
 /* --- CONTACT PAGE --- */
 .contact-header {
   text-align: center;
