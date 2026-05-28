@@ -30,11 +30,13 @@
 
       <!-- Shop -->
       <div class="footer-col">
-        <h4>{{ section.settings.col1_heading }}</h4>
+        <h4>{{ section.settings.col1_heading | default: 'Shop' }}</h4>
         <ul>
-          {%- for link in linklists[section.settings.footer_shop_menu].links -%}
-            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {%- endfor -%}
+          <li><a href="/#bestsellers">Bestsellers</a></li>
+          <li><a href="/#our-story">Our Story</a></li>
+          <li><a href="/#shop-range">Shop by Range</a></li>
+          <li><a href="/#ingredients">Our Formula</a></li>
+          <li><a href="/#reviews">Reviews</a></li>
         </ul>
       </div>
 
@@ -45,8 +47,12 @@
           {%- if section.settings.contact_email != blank -%}
             <li><a href="mailto:{{ section.settings.contact_email }}">{{ section.settings.contact_email }}</a></li>
           {%- endif -%}
+          <li><a href="mailto:privacy@velvetbotanica.com">privacy@velvetbotanica.com</a></li>
           {%- if section.settings.contact_phone != blank -%}
             <li><a href="tel:{{ section.settings.contact_phone }}">{{ section.settings.contact_phone }}</a></li>
+          {%- endif -%}
+          {%- if section.settings.contact_address != blank -%}
+            <li class="footer-address">{{ section.settings.contact_address }}</li>
           {%- endif -%}
           <li><a href="/contact">Contact Form</a></li>
         </ul>
@@ -130,6 +136,12 @@
       "type": "text",
       "id": "contact_phone",
       "label": "Contact phone"
+    },
+    {
+      "type": "textarea",
+      "id": "contact_address",
+      "label": "Address",
+      "default": "A-Team Crescent, Paddy District New York, NY 10007 USA"
     },
     {
       "type": "text",
