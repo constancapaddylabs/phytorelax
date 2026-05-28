@@ -1070,6 +1070,29 @@ h4 { font-size: 1.25rem; font-weight: 600; }
   }
 }
 
+/* --- GENERIC PAGE --- */
+.page-header {
+  text-align: center;
+  padding-top: 8rem;
+  padding-bottom: 3rem;
+  background: linear-gradient(180deg, var(--color-blush-light) 0%, var(--color-bg) 100%);
+}
+
+.page-content {
+  max-width: 780px;
+  margin: 0 auto;
+  line-height: 1.85;
+  color: var(--color-text);
+}
+
+.page-content h2 { font-family: var(--font-heading); margin: 2rem 0 0.8rem; }
+.page-content h3 { font-family: var(--font-heading); margin: 1.5rem 0 0.6rem; }
+.page-content p  { margin-bottom: 1.2rem; }
+.page-content ul,
+.page-content ol { padding-left: 1.4rem; margin-bottom: 1.2rem; }
+.page-content li { margin-bottom: 0.4rem; }
+.page-content a  { color: var(--color-rose-gold); text-decoration: underline; }
+
 /* --- CONTACT PAGE --- */
 .contact-header {
   text-align: center;
