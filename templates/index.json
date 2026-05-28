@@ -12,7 +12,7 @@
     "hero": {
       "type": "hero-banner",
       "settings": {
-        "background_image": "shopify://shop_images/zulfugar-karimov-DfEwgXjEyh4-unsplash.jpg",
+        "background_image": "shopify://shop_images/velvet-green-wide-background.png",
         "product_image": "shopify://shop_images/shampo1.png",
         "show_product_float": true,
         "overlay_opacity": 10,

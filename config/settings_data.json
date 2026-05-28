@@ -19,6 +19,7 @@
       "header": {
         "type": "header",
         "settings": {
+          "logo": "shopify://shop_images/6e319a02-7d8c-40d3-a04d-e023942b3e5a.png",
           "logo_text": "Velvet Botanica",
           "menu": "main-menu"
         }
